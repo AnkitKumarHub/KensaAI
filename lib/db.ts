@@ -1,3 +1,6 @@
+// singleton pattern (recommended by prisma)
+// multiple instances connection pool not needed  
+
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "./generated/prisma/client";
 
@@ -20,6 +23,6 @@ function createPrismaClient() {
 export const prisma = globalForPrisma.prisma ?? createPrismaClient();
 
 
-if(process.env.NODE_ENV !== "production"){
-    globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prisma = prisma;
 }

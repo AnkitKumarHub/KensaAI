@@ -29,13 +29,14 @@ type SignInPageProps = {
 
 const SignInPage = async({searchParams}:SignInPageProps) => {
     const {callbackUrl} = await searchParams;
+
   return (
      <Card className="border-border/80 shadow-sm">
       <CardHeader className="items-center text-center">
         <div className="mb-6 flex justify-center pt-2">
           <Image
             src="/logo2.svg"
-            alt="Chai AI Code Reviewer"
+            alt="AI Code Reviewer"
             width={172}
             height={172}
             priority
@@ -51,7 +52,8 @@ const SignInPage = async({searchParams}:SignInPageProps) => {
         <FieldSet>
           <FieldGroup>
             <Field>
-              <GithubSignInForm callbackUrl={callbackUrl} />
+              {/* GithubSignInForm component -> will handle the github OAuth signIn flow and redirect browser to github consent page*/}
+              <GithubSignInForm callbackUrl={callbackUrl} /> 
               <FieldDescription className="text-center">
                 We only request the permissions needed to identify your
                 account. You can revoke access anytime from GitHub settings.

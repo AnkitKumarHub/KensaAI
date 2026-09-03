@@ -4,6 +4,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { useFormStatus } from "react-dom";
 import { signInWithGithub } from "../actions";
 
+//GitHub Icon 
 function GitHubIcon() {
   return (
     <svg viewBox="0 0 24 24" className="size-4" aria-hidden fill="currentColor">

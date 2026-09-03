@@ -14,5 +14,5 @@ export const auth = betterAuth({
         },
     },
 
-    plugins: [nextCookies()] // make sure this is the last plugin in the array
+    plugins: [nextCookies()] //needed when using SignInEmail/signUpEmail and you need to set the cookies for the user without this cookies will not be set 
 }); 
