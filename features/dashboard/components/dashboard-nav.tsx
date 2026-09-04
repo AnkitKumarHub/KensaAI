@@ -24,9 +24,9 @@ import {
 import { GitHubIcon } from "@/features/auth/components/github-sign-in-form";
 
 const NAV_ICONS = {
-  "layout-dashboard": IconLayoutColumns ,
+  "layout-dashboard": IconLayoutColumns,
   "folder-git-2": IconGitBranch,
-  github: IconBrandGithub,  //github icon 
+  github: IconBrandGithub,
   settings: IconSettings,
 } as const;
 
