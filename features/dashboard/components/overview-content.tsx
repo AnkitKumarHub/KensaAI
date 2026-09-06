@@ -27,7 +27,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Plan } from "@/lib/generated/prisma/enums";
-import { IconBrandGit, IconFolderSymlink, IconGitPullRequest, IconSparkles } from "@tabler/icons-react";
+import { IconBrandGithub, IconFolderSymlink, IconGitPullRequest, IconSparkles } from "@tabler/icons-react";
 
 /** Maps activity status values to badge label and color tone. */
 const ACTIVITY_STATUS = {
@@ -161,7 +161,7 @@ function buildStats(overview: OverviewData): StatCard[] {
       title: "GitHub App",
       value: githubStat.value,
       description: githubStat.description,
-      icon: IconBrandGit,
+      icon: IconBrandGithub,
       accent: githubStat.accent,
     },
     {
