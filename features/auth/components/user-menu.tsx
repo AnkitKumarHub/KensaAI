@@ -131,7 +131,7 @@ export function UserMenu({
                   </p>
                 ) : null}
                 <Badge variant="secondary" className="w-fit">
-                  {plan} plan
+                  {plan}
                 </Badge>
               </div>
             </div>

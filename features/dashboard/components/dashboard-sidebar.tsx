@@ -23,7 +23,7 @@ type DashboardSidebarProps = {
   plan?: string;
 };
 
-export function DashboardSidebar({ user, plan = "Pro" }: DashboardSidebarProps) {
+export function DashboardSidebar({ user, plan }: DashboardSidebarProps) {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
@@ -31,7 +31,7 @@ export function DashboardSidebar({ user, plan = "Pro" }: DashboardSidebarProps) 
           <SidebarMenuItem>
             <SidebarMenuButton
               size="lg"
-              tooltip="ChaiCodeAIReview"
+              tooltip="AIReview"
               render={
                 <Link href={DASHBOARD_ROUTES.overview}>
                   <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-none bg-sidebar">
