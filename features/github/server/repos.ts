@@ -41,7 +41,8 @@ export type InstallationReposPage = {
 
 /** Normalizes a raw GitHub API repo object into our app's `GithubRepo` shape. */
 function mapRepo(repo: {
-    id: number;
+    // Octokit types `id` as `number | bigint` (GitHub can exceed JS safe integer range).
+    id: number | bigint;
     name: string;
     full_name: string;
     private?: boolean;

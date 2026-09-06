@@ -1,3 +1,4 @@
+import type { Plan } from "@/lib/generated/prisma/client";
 
 export type RepoSyncStatus = "pending" | "syncing" | "synced" | "failed";
 
@@ -31,7 +32,7 @@ export type GithubInstallationStatus = {
 };
 
 /** The two billing tiers available in the app. */
-export type SubscriptionPlan = "free" | "pro";
+export type SubscriptionPlan = Plan;
 
 /**
  * The user's current subscription state, used on the Settings page

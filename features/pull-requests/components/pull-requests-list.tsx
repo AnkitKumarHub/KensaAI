@@ -20,7 +20,7 @@ import type {
   PullRequestItem,
   RepoPullRequests,
 } from "@/features/pull-requests/types/pull-request";
-import { statusBadge } from "@/features/dashboard/lib/status-style";
+import { statusBadge } from "@/features/dashboard/lib/status-styles";
 import { AiReviewMarkdown } from "@/features/pull-requests/components/ai-review-markdown";
 import {
   PR_STATUS_LABELS,

@@ -11,7 +11,7 @@ import {
   getInstallationStatus,
   getUserInstallationId,
 } from "@/features/github/server/installation";
-import { getUserSubscription } from "@/features/settings/server/subscription";
+import { getUserSubscription } from "@/features/billing/server/subscription";
 
 import { getRecentReviewActivity } from "./activity";
 import { getInstallationRepoSummary } from "./repo-summary";

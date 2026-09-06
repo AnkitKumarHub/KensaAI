@@ -18,19 +18,28 @@ model Test {
 }
 
 model User {
-  id            String    @id
-  name          String
-  email         String
-  emailVerified Boolean   @default(false)
-  image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
-  githubInstallation GithubInstallation? //one to one 
+  id                     String              @id
+  name                   String
+  email                  String
+  emailVerified          Boolean             @default(false)
+  image                  String?
+  plan                   Plan                @default(FREE) // Free | PRO
+  razorpaySubscriptionId String?
+  subscriptionStatus     String?             //active | canceled | Trial
+  subscriptionRenewsAt   DateTime?
+  createdAt              DateTime            @default(now())
+  updatedAt              DateTime            @updatedAt
+  sessions               Session[]
+  accounts               Account[]
+  githubInstallation     GithubInstallation? //one to one 
 
   @@unique([email])
   @@map("user")
+}
+
+enum Plan {
+  FREE
+  PRO
 }
 
 model GithubInstallation {

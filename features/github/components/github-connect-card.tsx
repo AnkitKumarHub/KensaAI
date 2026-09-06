@@ -10,7 +10,7 @@ import type { GithubInstallationStatus } from "@/features/dashboard/lib/types";
 import {
     statusBadge,
     statusButtonClass,
-} from "@/features/dashboard/lib/status-style";
+} from "@/features/dashboard/lib/status-styles";
 import { getGithubInstallUrl } from "@/features/github/utils/github-app";
 
 import { cn } from "@/lib/utils";

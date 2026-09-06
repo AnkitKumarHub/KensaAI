@@ -10,13 +10,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatDistanceToNow } from "date-fns";
 import {
-  ArrowLeftIcon,
-  BotIcon,
-  ExternalLinkIcon,
-  GitBranchIcon,
-  GitPullRequestIcon,
-  UserIcon,
-} from "lucide-react";
+  // BotIcon,
+  // ExternalLinkIcon,
+  // GitBranchIcon,
+  // GitPullRequestIcon,
+  IconArrowLeftDashed,
+  IconExternalLink,
+  IconGitBranch,
+  IconGitPullRequest,
+  IconRobot,
+  IconUser,
+} from "@tabler/icons-react";
 
 import { DashboardHeader } from "@/features/dashboard/components/dashboard-header";
 import { DASHBOARD_ROUTES } from "@/features/dashboard/lib/routes";
@@ -29,9 +33,10 @@ import {
   PR_STATUS_LABELS,
   getPrStatusTone,
 } from "@/features/pull-requests/utils/status";
-import { requireAuth } from "@/lib/auth-session";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { requireAuth } from "@/features/auth/actions";
 
 export const metadata: Metadata = {
   title: "Pull Request Review · Dashboard",
@@ -116,9 +121,9 @@ export default async function PullRequestDetailPage({
             variant="ghost"
             size="sm"
             nativeButton={false}
-            render={<Link href={DASHBOARD_ROUTES.pullRequests} />}
+            render={<Link href={DASHBOARD_ROUTES.pullRequest} />}
           >
-            <ArrowLeftIcon />
+            <IconArrowLeftDashed />
             Back to pull requests
           </Button>
         </div>
@@ -126,7 +131,7 @@ export default async function PullRequestDetailPage({
         <Card className="rounded-none">
           <CardHeader>
             <CardTitle className="flex flex-wrap items-center gap-2 text-sm">
-              <GitPullRequestIcon className="size-4 text-muted-foreground" />
+              <IconGitPullRequest className="size-4 text-muted-foreground" />
               {pullRequest.title}
               <span className="text-xs font-normal text-muted-foreground">
                 #{pullRequest.prNumber}
@@ -138,11 +143,11 @@ export default async function PullRequestDetailPage({
           </CardHeader>
           <CardContent className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1">
-              <UserIcon className="size-3" />
+              <IconUser className="size-3" />
               {pullRequest.authorLogin ?? "unknown"}
             </span>
             <span className="inline-flex items-center gap-1">
-              <GitBranchIcon className="size-3" />
+              <IconGitBranch className="size-3" />
               {pullRequest.baseBranch}
             </span>
             <span>opened {openedAgo}</span>
@@ -152,7 +157,7 @@ export default async function PullRequestDetailPage({
               className="ml-auto inline-flex items-center gap-1 hover:text-foreground hover:underline"
             >
               View on GitHub
-              <ExternalLinkIcon className="size-3" />
+              <IconExternalLink className="size-3" />
             </Link>
           </CardContent>
         </Card>
@@ -160,7 +165,7 @@ export default async function PullRequestDetailPage({
         <Card className="rounded-none">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-sm">
-              <BotIcon className="size-4 text-muted-foreground" />
+              <IconRobot className="size-4 text-muted-foreground" />
               AI Review
             </CardTitle>
           </CardHeader>

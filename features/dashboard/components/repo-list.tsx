@@ -15,7 +15,7 @@ import {
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { githubReposInfiniteQuery } from "@/features/github/lib/repos-query";
 import { DashboardRepo } from "../lib/types";
-import { statusBadge } from "../lib/status-style";
+import { statusBadge } from "../lib/status-styles";
 import SyncRepoButton from "@/features/repo-sync/components/sync-repo-button";
 import { IconLock, IconLockOpen, IconStar } from "@tabler/icons-react";
 

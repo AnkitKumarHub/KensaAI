@@ -13,8 +13,8 @@ import { DASHBOARD_ROUTES } from "@/features/dashboard/lib/routes";
 import { getUserInstallationId } from "@/features/github/server/installation";
 import { PullRequestsList } from "@/features/pull-requests/components/pull-requests-list";
 import { getPullRequestsByRepo } from "@/features/pull-requests/server/get-pull-requests";
-import { requireAuth } from "@/lib/auth-session";
 import { Button } from "@/components/ui/button";
+import { requireAuth } from "@/features/auth/actions";
 
 export const metadata: Metadata = {
   title: "Pull Requests · Dashboard",
