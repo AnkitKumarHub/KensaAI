@@ -41,7 +41,7 @@ export function ChapterCarousel() {
       <div className="landing-stage">
         <div
           aria-label="Product chapters, auto-advancing"
-          className="flex gap-1 overflow-x-auto border-b border-white/5 px-3 pt-3 pb-2 md:gap-2 md:px-4"
+          className="flex gap-1 overflow-x-auto scrollbar-none border-b border-white/5 px-3 pt-3 pb-2 md:gap-2 md:px-4"
         >
           {heroChapters.map((chapter, index) => {
             const isActive = index === activeIndex;

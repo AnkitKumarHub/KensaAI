@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { AnimatedReveal } from "./animated-reveal";
 import {
   CommittableSuggestion,
@@ -136,20 +137,26 @@ export function ReviewArtifactDemo() {
               />
             </div>
 
-            <div
-              data-visible={showOverlay}
-              className="landing-overlay-card absolute right-0 bottom-0 left-0 z-10"
-            >
-              <div className="landing-panel-surface-elevated space-y-3 p-3">
-                <p className="text-[11px] text-landing-on-dark-soft">
-                  {reviewMeta.filesReviewed} files reviewed
-                </p>
-                <DimensionChips visibleCount={visibleChips} />
-                <p className="text-xs leading-relaxed text-landing-on-dark-soft">
-                  {reviewMeta.postingNote}
-                </p>
-              </div>
-            </div>
+            <AnimatePresence>
+              {showOverlay && (
+                <motion.div
+                  initial={{ opacity: 0, y: 32, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ type: "spring", damping: 28, stiffness: 180, mass: 0.8 }}
+                  className="absolute right-2 bottom-12 left-3 z-10 md:right-4 md:left-6"
+                >
+                  <div className="landing-panel-surface-elevated space-y-3 rounded-xl p-3 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
+                    <p className="text-[11px] text-landing-on-dark-soft">
+                      {reviewMeta.filesReviewed} files reviewed
+                    </p>
+                    <DimensionChips visibleCount={visibleChips} />
+                    <p className="text-xs leading-relaxed text-landing-on-dark-soft">
+                      {reviewMeta.postingNote}
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </CodeWindow>
       </AnimatedReveal>

@@ -1,6 +1,10 @@
+"use client";
+
 import { pricingTiers } from "@/features/marketing/lib/content";
 import { cn } from "@/lib/utils";
 import { Eyebrow, MarketingButton, MarketingSection } from "./marketing-primitives";
+import { motion } from "motion/react";
+import { useInView } from "@/features/marketing/lib/use-in-view";
 
 const tierOrderClass: Record<string, string> = {
   hobby: "order-2 lg:order-1",
@@ -15,6 +19,8 @@ function getButtonVariant(tierId: string, featured?: boolean) {
 }
 
 export function PricingBand() {
+  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.2 });
+
   return (
     <MarketingSection id="pricing" className="bg-landing-surface-soft">
       <div className="mb-12 text-center">
@@ -24,22 +30,41 @@ export function PricingBand() {
         </h2>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        {pricingTiers.map((tier) => (
-          <div
+      <div ref={ref} className="grid gap-6 lg:grid-cols-3">
+        {pricingTiers.map((tier, index) => (
+          <motion.div
             key={tier.id}
+            initial={{ opacity: 0, y: 28 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              delay: index * 0.12,
+              type: "spring",
+              damping: 28,
+              stiffness: 180,
+              mass: 0.8,
+            }}
             className={cn(
               "relative flex flex-col rounded-xl p-8",
               tierOrderClass[tier.id],
               tier.featured
-                ? "bg-landing-surface-dark text-landing-on-dark ring-1 ring-white/10 lg:py-10"
+                ? "bg-landing-surface-dark text-landing-on-dark ring-1 ring-landing-coral/25 shadow-[0_8px_48px_rgba(196,108,60,0.12)] lg:scale-[1.03] lg:py-10"
                 : "border border-landing-hairline bg-landing-canvas",
             )}
           >
             {tier.badge && (
-              <span className="absolute -top-3 left-6 rounded-full bg-landing-coral px-3 py-1 text-xs font-medium tracking-wide text-landing-on-coral uppercase">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.9, y: -8 }}
+                animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                transition={{
+                  delay: 0.4,
+                  type: "spring",
+                  damping: 20,
+                  stiffness: 200,
+                }}
+                className="absolute -top-3 left-6 rounded-full bg-landing-coral px-3 py-1 text-xs font-medium tracking-wide text-landing-on-coral uppercase shadow-[0_2px_12px_rgba(196,108,60,0.35)]"
+              >
                 {tier.badge}
-              </span>
+              </motion.span>
             )}
 
             <div className="mb-6">
@@ -87,9 +112,16 @@ export function PricingBand() {
                   {tier.scopeIntro}
                 </li>
               )}
-              {tier.features.map((feature) => (
-                <li
+              {tier.features.map((feature, featureIndex) => (
+                <motion.li
                   key={feature}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{
+                    delay: index * 0.12 + 0.3 + featureIndex * 0.06,
+                    duration: 0.35,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
                   className={cn(
                     "flex items-start gap-2 text-sm leading-relaxed",
                     tier.featured ? "text-landing-on-dark-soft" : "text-landing-body",
@@ -102,7 +134,7 @@ export function PricingBand() {
                     )}
                   />
                   {feature}
-                </li>
+                </motion.li>
               ))}
             </ul>
 
@@ -113,9 +145,10 @@ export function PricingBand() {
             >
               {tier.cta}
             </MarketingButton>
-          </div>
+          </motion.div>
         ))}
       </div>
     </MarketingSection>
   );
 }
+

@@ -176,7 +176,7 @@ export function CommittableSuggestion({
       <p className="mb-3 text-sm leading-relaxed text-landing-on-dark-soft">
         {description}
       </p>
-      <pre className="overflow-x-auto rounded-md bg-landing-surface-dark px-3 py-2 font-mono text-xs text-landing-success">
+      <pre className="overflow-x-hidden rounded-md bg-landing-surface-dark px-3 py-2 font-mono text-xs text-landing-success">
         <code>{code}</code>
       </pre>
     </div>

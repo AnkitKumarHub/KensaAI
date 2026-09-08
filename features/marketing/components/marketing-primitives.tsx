@@ -41,6 +41,7 @@ export function ChapterHeading({
   lede,
   className,
   dark = false,
+  showNumber = true,
 }: {
   number: string;
   label: string;
@@ -48,17 +49,20 @@ export function ChapterHeading({
   lede?: string;
   className?: string;
   dark?: boolean;
+  showNumber?: boolean;
 }) {
   return (
     <div className={cn("mb-10 max-w-2xl", className)}>
-      <p
-        className={cn(
-          "mb-3 font-mono text-sm",
-          dark ? "text-landing-on-dark-soft" : "text-landing-muted",
-        )}
-      >
-        <span className="text-landing-coral">{number}</span> {label}
-      </p>
+      {showNumber && (
+        <p
+          className={cn(
+            "mb-3 font-mono text-sm",
+            dark ? "text-landing-on-dark-soft" : "text-landing-muted",
+          )}
+        >
+          <span className="text-landing-coral">{number}</span> {label}
+        </p>
+      )}
       {lede && (
         <p
           className={cn(

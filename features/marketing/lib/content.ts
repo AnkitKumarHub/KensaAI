@@ -3,7 +3,7 @@ import { getContactMailto } from "@/lib/site-config";
 export type ChapterId = "understand" | "review" | "track" | "security";
 export type HeroChapterId = "understand" | "review" | "track";
 
-export type ChapterLayout = "split" | "split-reverse" | "intro-dual-cards";
+export type ChapterLayout = "split" | "split-reverse";
 
 export type Chapter = {
   id: ChapterId;
@@ -13,7 +13,7 @@ export type Chapter = {
   title: string;
   lede?: string;
   layout: ChapterLayout;
-  bullets: { lead: string; body: string; group?: "today" | "preview" }[];
+  bullets: { lead: string; body: string }[];
 };
 
 export type HeroChapter = Chapter & { id: HeroChapterId };
@@ -37,10 +37,6 @@ const understandChapter: HeroChapter = {
       body: "Index your repository alongside the diff so reviews aren't blind to how the rest of the code works.",
     },
     {
-      lead: "23 source and config file types",
-      body: "TypeScript, Python, Go, Rust, Java, and more. node_modules, dist, build, .next, and vendor are skipped.",
-    },
-    {
       lead: "Retrieval keyed on intent",
       body: "The ten most relevant passages are pulled based on what the pull request says it's doing.",
     },
@@ -62,14 +58,6 @@ const reviewChapter: HeroChapter = {
     {
       lead: "Six dimensions, every time",
       body: "Correctness, security, performance, reliability, readability, and maintainability.",
-    },
-    {
-      lead: "Triggers itself",
-      body: "Runs on opened, reopened, and every new push to the branch.",
-    },
-    {
-      lead: "Posted where you already work",
-      body: "One structured comment on the pull request, not another dashboard to babysit.",
     },
     {
       lead: "Proportional, not pedantic",
@@ -99,10 +87,6 @@ const trackChapter: HeroChapter = {
       body: "Read the complete comment in Kensa, not just on GitHub.",
     },
     {
-      lead: "Per-repository sync state",
-      body: "See which repos are indexed and how many chunks are stored.",
-    },
-    {
       lead: "Usage counted clearly",
       body: "Know how many reviews you've used against your monthly limit.",
     },
@@ -115,7 +99,7 @@ const securityChapter: Chapter = {
   label: "SECURITY",
   subtitle: "what the diff can leak",
   title: "Security findings, not another dashboard.",
-  layout: "intro-dual-cards",
+  layout: "split-reverse",
   bullets: [
     {
       lead: "Injection risks",
@@ -128,18 +112,6 @@ const securityChapter: Chapter = {
     {
       lead: "Exposed secrets",
       body: "Surfaces hardcoded keys, tokens, and credentials that land in the diff.",
-    },
-    {
-      lead: "Unsafe deserialization",
-      body: "Calls out parses and loads that accept untrusted payloads without a guard.",
-    },
-    {
-      lead: "Unvalidated input",
-      body: "Marks request data that reaches sensitive paths without checks.",
-    },
-    {
-      lead: "Dependency advisory scanning",
-      body: "Package-level GHSA-style findings with severity and fix readiness.",
     },
   ],
 };
