@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SIGN_IN_PATH } from "../utils";
+import { LANDING_PAGE_PATH, SIGN_IN_PATH } from "../utils";
 import { IconCircleChevronUp , IconLogout  } from "@tabler/icons-react";
 
 const DEFAULT_PLAN = "Free";
@@ -81,7 +81,7 @@ export function UserMenu({
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push(SIGN_IN_PATH);
+          router.push(LANDING_PAGE_PATH);
         },
       },
     });
