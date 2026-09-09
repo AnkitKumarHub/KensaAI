@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LANDING_PAGE_PATH, SIGN_IN_PATH } from "../utils";
+import { LANDING_PAGE_PATH } from "../utils";
 import { IconCircleChevronUp , IconLogout  } from "@tabler/icons-react";
 
 const DEFAULT_PLAN = "Free";
