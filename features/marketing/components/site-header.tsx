@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import { siteConfig } from "@/lib/site-config";
 import { navLinks } from "@/features/marketing/lib/content";
 import { MarketingButton } from "./marketing-primitives";
@@ -13,9 +14,10 @@ export function SiteHeader({ isAuthenticated }: { isAuthenticated: boolean }) {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6 md:px-8">
         <Link
           href="/"
-          className="font-landing-display text-lg tracking-[0.18em] text-landing-ink uppercase"
+          className="flex items-center gap-2.5 font-landing-display text-lg tracking-[0.18em] text-landing-ink uppercase"
         >
-          {siteConfig.name}
+          <BrandLogo width={28} height={28} variant="on-light" />
+          <span>{siteConfig.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

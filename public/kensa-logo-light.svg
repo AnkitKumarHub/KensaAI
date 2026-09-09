@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>Kensa logo — light mode</title>
+  <g fill="none" stroke="#171717" stroke-width="54" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M196 126 L92 256 L196 386"/>
+    <path d="M316 126 L420 256 L316 386"/>
+  </g>
+  <circle cx="256" cy="256" r="67" fill="#FF6B35"/>
+</svg>

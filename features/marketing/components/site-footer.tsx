@@ -1,3 +1,4 @@
+import { BrandLogo } from "@/components/brand-logo";
 import { siteConfig } from "@/lib/site-config";
 import { footerColumns } from "@/features/marketing/lib/content";
 
@@ -8,9 +9,10 @@ export function SiteFooter() {
     <footer className="bg-landing-surface-dark px-6 py-16 text-landing-on-dark-soft md:px-8 md:py-20">
       <div className="mx-auto max-w-6xl">
         {/* Brand */}
-        <p className="mb-12 font-landing-display text-lg tracking-[0.18em] text-landing-on-dark uppercase">
-          {siteConfig.name}
-        </p>
+        <div className="mb-12 flex items-center gap-2.5 font-landing-display text-lg tracking-[0.18em] text-landing-on-dark uppercase">
+          <BrandLogo width={28} height={28} variant="on-dark" />
+          <span>{siteConfig.name}</span>
+        </div>
 
         {/* Nav columns */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

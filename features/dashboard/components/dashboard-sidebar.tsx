@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
-
+import { BrandLogo } from "@/components/brand-logo";
 import { DASHBOARD_ROUTES } from "@/features/dashboard/lib/routes";
 import { DashboardNav } from "@/features/dashboard/components/dashboard-nav";
 import { SidebarUserButton } from "@/features/dashboard/components/sidebar-user-button";
@@ -17,6 +16,7 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { UserMenuUser } from "@/features/auth/components/user-menu";
+import { siteConfig } from "@/lib/site-config";
 
 type DashboardSidebarProps = {
   user: UserMenuUser;
@@ -31,21 +31,14 @@ export function DashboardSidebar({ user, plan }: DashboardSidebarProps) {
           <SidebarMenuItem>
             <SidebarMenuButton
               size="lg"
-              tooltip="AIReview"
+              tooltip={siteConfig.name}
               render={
                 <Link href={DASHBOARD_ROUTES.overview}>
                   <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-none bg-sidebar">
-                    <Image
-                      src="/logo2.svg"
-                      alt=""
-                      width={62}
-                      height={62}
-                      className="object-contain"
-                    />
+                    <BrandLogo width={32} height={32} />
                   </span>
                   <span className="grid flex-1 text-left leading-tight group-data-[collapsible=icon]:hidden">
-                    <span className="truncate font-medium">ChaiCodeAIReview</span>
-                   
+                    <span className="truncate font-medium">{siteConfig.name}</span>
                   </span>
                 </Link>
               }
