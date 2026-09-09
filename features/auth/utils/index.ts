@@ -1,3 +1,4 @@
+export const LANDING_PAGE_PATH = "/"
 export const SIGN_IN_PATH = "/sign-in";
 export const DEFAULT_AUTH_CALLBACK = "/dashboard";
 
