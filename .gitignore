@@ -47,4 +47,4 @@ skills-lock.json
 .agents/
 .cursor/
 
-/lib/generated/prisma
+

@@ -4,7 +4,7 @@ export const siteConfig = {
   description:
     "Kensa reviews every pull request with codebase context - correctness, security, performance, and more - posted right on GitHub.",
   contactEmail: "mailtoankitkumar01@gmail.com",
-  url: "https://kensa.dev",
+  url: "https://kensa.ankithub.me",
   githubInstallPath: "/dashboard/github",
   signInPath: "/sign-in",
   dashboardPath: "/dashboard",

@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kensa
 
-## Getting Started
+**See deeper. Ship safer.**
 
-First, run the development server:
+Kensa is an AI assistant that reviews code changes before they merge. It connects to GitHub, reads the change and relevant parts of the repository, then leaves structured feedback on the pull request (like a teammate commenting). Engineers stay in GitHub. They do not babysit another dashboard for every review.
+
+**Live site:** [https://kensa.ankithub.me](https://kensa.ankithub.me)
+
+> Product name, tagline, and description stay in sync with [`lib/site-config.ts`](lib/site-config.ts).
+
+---
+
+## In simple terms
+
+| Question | Plain answer |
+| --- | --- |
+| What does it do? | Automatically reviews code changes and posts structured feedback on GitHub. |
+| Who uses it? | Engineering teams that want consistent reviews on every change. |
+| Does it replace people? | No. It catches common issues and speeds up review. Humans still decide what ships. |
+| How do teams start? | Install the GitHub App, pick repositories, open or update a pull request. Kensa comments when the review is ready. |
+
+**Plans:** free Hobby for individuals, paid Pro, and a Team option for orgs that need something custom.
+
+**Honest limits today:** one structured comment on the pull request conversation (not per-line threads yet), suggestions without auto-committing fixes, and repository-wide context only when you opt in to sync.
+
+---
+
+## How it works
+
+1. **Understand** – Learns context from the repository, not only the lines changed.
+2. **Review** – Checks correctness, security, performance, and related areas, then posts one clear comment on GitHub.
+3. **Track** – Keeps review status and history in the Kensa dashboard.
+4. **Security** – Surfaces security-related findings alongside reviews.
+
+---
+
+## For developers
+
+**Stack:** Next.js, TypeScript, Prisma, PostgreSQL, GitHub App, Better Auth, Inngest (background jobs), OpenRouter (AI), Pinecone (repo context), Razorpay (billing).
+
+### Prerequisites
+
+- Node.js and [pnpm](https://pnpm.io)
+- A PostgreSQL database
+- Environment variables for the services below (there is no `.env.example` in the repo yet)
+
+**Env categories used in this codebase:**
+
+| Area | Variables |
+| --- | --- |
+| Database | `DATABASE_URL` |
+| GitHub OAuth (sign-in) | `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` |
+| GitHub App (reviews) | `GITHUB_APP_ID`, `GITHUB_APP_PRIVATE_KEY`, `GITHUB_WEBHOOK_SECRET` |
+| AI | `OPENROUTER_API_KEY` |
+| Repo context | `PINECONE_API_KEY`, `PINECONE_INDEX` |
+| Billing | `NEXT_PUBLIC_RAZORPAY_TEST_KEY_ID`, `RAZORPAY_TEST_KEY_SECRET`, `RAZORPAY_WEBHOOK_SECRET`, `RAZORPAY_PLAN_ID_INDIVIDUAL` |
+
+Also configure whatever your local Better Auth / Inngest setup expects for cookies and job runners.
+
+### Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+pnpm exec prisma migrate dev
+pnpm exec prisma generate
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm build
+pnpm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Course / build notes for contributors: [`thought.md`](thought.md).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Questions or Team plan interest: [mailtoankitkumar01@gmail.com](mailto:mailtoankitkumar01@gmail.com)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No public license file is included. Treat this repository as private / all rights reserved unless a `LICENSE` is added later.
