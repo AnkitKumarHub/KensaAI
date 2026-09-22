@@ -6,7 +6,6 @@ Kensa is an AI assistant that reviews code changes before they merge. It connect
 
 **Live site:** [https://kensa.ankithub.me](https://kensa.ankithub.me)
 
-> Product name, tagline, and description stay in sync with [`lib/site-config.ts`](lib/site-config.ts).
 
 ---
 
@@ -73,8 +72,6 @@ pnpm build
 pnpm start
 ```
 
-Course / build notes for contributors: [`thought.md`](thought.md).
-
 ---
 
 ## Contact
@@ -83,6 +80,3 @@ Questions or Team plan interest: [mailtoankitkumar01@gmail.com](mailto:mailtoank
 
 ---
 
-## License
-
-No public license file is included. Treat this repository as private / all rights reserved unless a `LICENSE` is added later.
